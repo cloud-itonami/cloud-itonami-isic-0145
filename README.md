@@ -1,6 +1,6 @@
-# cloud-itonami-isic-0144
+# cloud-itonami-isic-0145
 
-Open Occupation Blueprint for **ISIC Rev. 4 0144**: Raising of swine/pigs.
+Open Occupation Blueprint for **ISIC Rev. 4 0145**: Raising of swine/pigs.
 
 This repository implements a forkable OSS **swine-farm operations
 coordinator**: a facility-management and record-keeping robot manages herd
@@ -123,7 +123,7 @@ Mirrors `cloud-itonami-isic-0141` (`cattleops.*`) module-for-module:
 ## Capability layer
 
 Resolves via [`kotoba-lang/occupation`](https://github.com/kotoba-lang/occupation)
-(ISIC Rev. 4 `0144`). Required capabilities:
+(ISIC Rev. 4 `0145`). Required capabilities:
 
 - :robotics
 - :identity

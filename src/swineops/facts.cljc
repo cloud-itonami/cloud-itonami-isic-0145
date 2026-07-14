@@ -29,7 +29,7 @@
 
 (def breeds
   "Common commercial swine breeds this actor's facility/herd records may
-  cover (ISIC 0144: raising of swine/pigs)."
+  cover (ISIC 0145: raising of swine/pigs)."
   {"landrace"  {:id "landrace"  :name "ランドレース"}
    "duroc"     {:id "duroc"     :name "デュロック"}
    "yorkshire" {:id "yorkshire" :name "ヨークシャー"}

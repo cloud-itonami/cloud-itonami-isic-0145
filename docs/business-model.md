@@ -2,8 +2,8 @@
 
 ## Classification
 
-- Repository: `cloud-itonami-isic-0144`
-- ISIC Rev. 4: `0144`
+- Repository: `cloud-itonami-isic-0145`
+- ISIC Rev. 4: `0145`
 - Industry: Raising of swine/pigs
 - Social impact: animal-welfare, food-security, rural-employment
 

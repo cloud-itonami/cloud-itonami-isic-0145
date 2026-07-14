@@ -1,6 +1,6 @@
-{:itonami.blueprint/id "cloud-itonami-0144"
+{:itonami.blueprint/id "cloud-itonami-0145"
  :itonami.blueprint/name "Swine-Farm Operations Coordination"
- :itonami.blueprint/isic-rev5 "0144"
+ :itonami.blueprint/isic-rev5 "0145"
  :itonami.blueprint/domain :agriculture/swine-raising
  :itonami.blueprint/license "AGPL-3.0-or-later"
  :itonami.blueprint/social-impact [:animal-welfare :food-security :rural-employment]
