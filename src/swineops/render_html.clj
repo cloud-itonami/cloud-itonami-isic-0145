@@ -542,7 +542,7 @@
                 (td (esc (if breed
                            (str (:name breed) " (" (:id breed) ")")
                            (kw->s (:breed rec)))))
-                (td (str "<span class=\"badge ok\">登録済み</span>"))])
+                (td "<span class=\"badge ok\">登録済み</span>")])
         absent (store/registered-facility store unregistered-facility-id)]
     (section
      "register" "施設レジスタ (実 Store から読み戻し)"
@@ -851,7 +851,7 @@
   `:governor-hard-hold`, so a phase-gate hold -- which shares the
   `:governor-hold` fact type -- can never satisfy it."
   [& [out]]
-  (let [{:keys [store runs] :as world} (run-all)
+  (let [{:keys [runs] :as world} (run-all)
         by-class (frequencies (map classify runs))
         hard (get by-class :governor-hard-hold 0)
         unclassified (get by-class :unclassified 0)
