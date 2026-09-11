@@ -2463,7 +2463,7 @@ code { font-family: var(--font-family-mono); background: var(--color-neutral-sol
         <div class="pf-pitch">
           <p>Open Occupation Blueprint for ISIC Rev. 4 0145: Raising of swine/pigs.</p>
           <p>This repository implements a forkable OSS swine-farm operations coordinator: a facility-management and record-keeping robot manages herd logging (including farrowing data), veterinary appointment scheduling, and supply procurement under a governor-gated actor, so a swine operation keeps its own operational records and maintains full transparency over decisions.</p>
-          <p>Maturity: :implemented. src/swineops/ implements the SwineOpsAdvisor (swineops.advisor) and the independent SwineFarmOperationsGovernor (swineops.governor), composed by swineops.operation following the itonami actor pattern (ADR-2607011000): advise -&gt; govern -&gt; phase-gate -&gt; commit | escalate | hold. 31 tests / 99 assertions green (clojure -M:test).</p>
+          <p>Maturity: :implemented. src/swineops/ implements the SwineOpsAdvisor (swineops.advisor) and the independent SwineFarmOperationsGovernor (swineops.governor), composed by swineops.operation following the itonami actor pattern (ADR-2607011000): advise -&gt; govern -&gt; phase-gate -&gt; commit | escalate | hold. 31 tests / 99 assertions green (kbb -M:test).</p>
         </div>
       </div>
       <p class="pf-meta">Domain <code>agriculture/swine-raising</code> · Governor <code>swine-farm-operations-governor</code> · License <code>AGPL-3.0-or-later</code></p>
