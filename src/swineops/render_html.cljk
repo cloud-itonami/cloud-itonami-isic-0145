@@ -56,14 +56,14 @@
     - facility id/name/barn/breed  `farm-001` / \"Sunrise Swine Farm\" /
                                    \"Barn 3, Pen 12\" / `landrace` from
                                    `swineops.sim/demo` and
-                                   `test/swineops/store_test.cljc`
+                                   `test/swineops/store_test.cljk`
     - facility id/name             `farm-002` / \"New Swine Farm\" from
-                                   `test/swineops/store_test.cljc`
+                                   `test/swineops/store_test.cljk`
                                    (seeded verbatim -- that record has
                                    no `:breed`, which is why the
                                    register shows an em dash there)
     - unregistered id              `no-such-farm` from
-                                   `test/swineops/store_test.cljc`
+                                   `test/swineops/store_test.cljk`
     - breed ids                    `landrace` from
                                    `swineops.facts/breeds`
     - supply categories            `feed` / `veterinary-supply` /
@@ -71,7 +71,7 @@
                                    500/500/1000 thresholds from
                                    `swineops.facts/supply-categories`
     - costs                        100 / 500 / 800 / 1000 / 1200 from
-                                   `test/swineops/governor_test.cljc`
+                                   `test/swineops/governor_test.cljk`
                                    or from the thresholds themselves
                                    (500 and 1000 are exact boundaries;
                                    `registry/cost-exceeds-threshold?`
@@ -81,7 +81,7 @@
                                    0.7 is the literal
                                    `governor/confidence-floor`
     - concern text                 \"アフリカ豚熱(ASF)の疑い\" from
-                                   `test/swineops/governor_test.cljc`
+                                   `test/swineops/governor_test.cljk`
     - blocked ops                  `:administer-treatment` /
                                    `:order-slaughter` from
                                    `swineops.governor/blocked-ops`
@@ -552,7 +552,7 @@
      "品種名は <code>swineops.facts/breed-by-id</code> の参照結果。</p>"
      (table ["facility-id" "名称" "豚舎/ピン" "品種" "状態"] rows)
      "<p class=\"muted\"><code>farm-002</code> の品種が空欄なのは、"
-     "<code>test/swineops/store_test.cljc</code> のレコードをそのまま"
+     "<code>test/swineops/store_test.cljk</code> のレコードをそのまま"
      "シードしており、そこに <code>:breed</code> が無いため。"
      "Store の docstring どおり施設データは Store にとって不透明で、"
      "形が揃っていることを前提にしていない。</p>"
@@ -769,7 +769,7 @@
      [(th "advisor")
       (td "<code>swineops.advisor/mock-advisor</code>。1 件のみ override advisor で <code>:effect</code> を差し替え、Governor の <code>:no-execution</code> を発火させた。")]
      [(th "施設シード")
-      (td "<code>swineops.sim/demo</code> と <code>test/swineops/store_test.cljc</code> のレコードをそのまま使用。")]
+      (td "<code>swineops.sim/demo</code> と <code>test/swineops/store_test.cljk</code> のレコードをそのまま使用。")]
      [(th "しきい値・フロア")
       (td "<code>swineops.facts/supply-categories</code>、<code>swineops.governor/confidence-floor</code> から直接読み出し。")]
      [(th "決定性")
@@ -832,7 +832,7 @@
          "<footer>"
          "<p>cloud-itonami-isic-0145 — Swine-Farm Operations Coordination "
          "(ISIC 0145, raising of swine/pigs). "
-         "生成元: <code>src/swineops/render_html.clj</code>。"
+         "生成元: <code>src/swineops/render_html.cljk</code>。"
          "再生成: <code>clojure -M:render-html</code>。</p>"
          "<p>スタイルは "
          "<a href=\"https://github.com/kotoba-lang/jp-go-digital-design-system\">jp-go-dds</a> "
