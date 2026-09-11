@@ -103,7 +103,7 @@
   map or set iteration order (every fold over a set or map sorts first).
   Two runs are byte-identical.
 
-  Usage: `clojure -M:render-html [out-file]`
+  Usage: `kbb -M:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [clojure.java.io :as io]
             [kotoba.lang.text :as str]
@@ -805,7 +805,7 @@
          "</div>"
          "<h1>養豚経営調整アクター — オペレータコンソール</h1>"
          "<p class=\"subtitle\">このページはビルド時に "
-         "<code>clojure -M:render-html</code> が実 actor "
+         "<code>kbb -M:render-html</code> が実 actor "
          "(advisor → 独立 Governor → phase gate) を実行して生成した。"
          "掲載されている施設・判定・違反・数値はすべてその実行の戻り値であり、"
          "手書きのドメイン内容は含まない。</p>"
@@ -833,7 +833,7 @@
          "<p>cloud-itonami-isic-0145 — Swine-Farm Operations Coordination "
          "(ISIC 0145, raising of swine/pigs). "
          "生成元: <code>src/swineops/render_html.cljk</code>。"
-         "再生成: <code>clojure -M:render-html</code>。</p>"
+         "再生成: <code>kbb -M:render-html</code>。</p>"
          "<p>スタイルは "
          "<a href=\"https://github.com/kotoba-lang/jp-go-digital-design-system\">jp-go-dds</a> "
          "(デジタル庁デザインシステムの vendored CSS + skin)。</p>"
