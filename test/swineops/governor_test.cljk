@@ -1,5 +1,5 @@
 (ns swineops.governor-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [swineops.governor :as gov]
             [swineops.store :as store]))
 
