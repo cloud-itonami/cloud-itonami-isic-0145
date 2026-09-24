@@ -1,0 +1,43 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": a facility-management robot keeps herd records
+;; (including farrowing data), schedules appointments and handles supplies for
+;; a pig farm (ISIC 0145). Its physical work: pumping liquid feed through the
+;; barn's feed pipeline, keeping the piglet creep area warm with the heated
+;; floor pad in the farrowing pen, and carrying feed sacks down the barn aisle.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-0145"
+ :cases
+ [{:id :liquid-feed-pipeline
+   :kind :pipe-flow
+   :procedure "liquid-feeding pump pushes mixed liquid feed through the 120 m feed pipeline to the pen valves"
+   :params {:diameter-m 0.05 :length-m 120.0 :roughness-m 1.5e-6
+            :density-kg-m3 1050.0 :viscosity-pa-s 0.05 :pump-efficiency 0.55 :elevation-m 1.0}
+   :sweep {:param :q-m3s :values [0.001 0.002 0.003 0.004 0.005]}
+   :quantity :pump-power-w
+   :limit {:max 2200.0 :basis "estimate: rated shaft power of a 2.2 kW liquid-feed pump (feed viscosity 0.05 Pa s is also an estimate)"}
+   :boundary {:lo 0.0005 :hi 0.01}}
+  {:id :creep-area-heated-floor-pad
+   :kind :thermal
+   :procedure "an electric heating cable cast in a 5 cm concrete floor pad warms the piglet creep area for a day; the lying surface temperature is judged"
+   :params {:thickness-m 0.05 :conductivity-w-mk 1.4 :density-kg-m3 2300.0 :specific-heat-j-kgk 880.0
+            :t0-c 18.0 :t-hot-c 18.0 :h-front-w-m2k 8.0 :t-back-ambient-c 18.0 :h-back-w-m2k 0.0
+            :threshold-c 38.0 :duration-s 86400.0 :nodes 11}
+   :sweep {:param :q-gen-w-m3 :values [1000.0 2000.0 3000.0 4000.0 5000.0]}
+   :quantity :final-front-c
+   :limit {:max 38.0 :basis "estimate: creep lying surface kept below ~38 C so piglets are warmed without contact burns (insulated underside)"}
+   :boundary {:lo 500.0 :hi 8000.0}}
+  {:id :feed-sacks-down-barn-aisle
+   :kind :transport
+   :procedure "barn robot carries sacks of creep feed down the farrowing barn aisle"
+   :params {:mass-kg 90.0 :distance-m 70.0 :v-max-mps 1.0 :a-max-mps2 0.4
+            :brake-decel-mps2 0.8 :drive-force-n 250.0 :crr 0.03
+            :cog-height-m 0.55 :support-half-length-m 0.35 :max-time-s 3600.0}
+   :sweep {:param :payload-kg :values [25.0 75.0 150.0 250.0 350.0]}
+   :quantity :cycle-time-s
+   :limit {:max 85.0 :basis "estimate: one aisle leg inside the feeding round's per-pen time"}
+   :boundary {:lo 10.0 :hi 1000.0}}]}
