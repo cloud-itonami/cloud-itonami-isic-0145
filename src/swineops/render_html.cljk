@@ -105,7 +105,7 @@
 
   Usage: `kbb -M:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
-  (:require [clojure.java.io :as io]
+  (:require [kotoba.io :as io]
             [kotoba.lang.text :as str]
             [jp-go-dds.skin]
             [swineops.advisor :as advisor]
@@ -868,7 +868,7 @@
       (throw (ex-info "分類が実行数と一致しない" {:by-class by-class})))
     (io/make-parents out-file)
     (spit out-file (render world))
-    (println (str "wrote " (.getPath out-file)
+    (println (str "wrote " (io/path out-file)
                   "  scenarios=" (count runs)
                   "  hard-governor-holds=" hard
                   "  phase-holds=" (get by-class :phase-hold 0)
@@ -876,7 +876,7 @@
                   "  governor-escalations=" (get by-class :governor-escalation 0)
                   "  commits=" (get by-class :commit 0)
                   "  hard-verdict-lost=" (get by-class :hard-verdict-lost 0)
-                  "  bytes=" (.length out-file)))
+                  "  bytes=" (io/length out-file)))
     ;; touch `registry` so the ns require is not dead: the console's
     ;; boundary claims (500 / 1000 / 0.7 pass at the boundary) are the
     ;; same predicates the Governor uses.
